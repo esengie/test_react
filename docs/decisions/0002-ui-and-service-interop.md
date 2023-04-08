@@ -11,8 +11,10 @@ How to pass data between the UI and backend?
 ## Decision Drivers
 
 * 1 source of truth
-* static typing across the stack
-* ease of change
+* static typing
+* ease of changing
+* works with mssql
+* maybe allows to collapse multiple calls into one? (due to how the app is done)
 
 ## Considered Options
 
@@ -22,20 +24,29 @@ How to pass data between the UI and backend?
 
 ## Decision Outcome
 
-Chosen option: "none", because strong typing and single source of truth
+Chosen option: "GraphQL", because strong typing and single source of truth
+
+### Positive Consequences
+
+* collapse multiple into one
+
+### Negative Consequences
+
+* learning curve
 
 ## Pros and Cons of the Options
 
 ### REST
 
-* Good, because in app
-* Bad, because need to add checking (currently string typed)
+* Good, because addresses all the reqs
+* Bad, because is not in app
+* Bad, because need to ramp up
 
 ### GraphQL
 
-* Good, because less footprint?
-* Good, because presence of generators
-* Bad, because not in app
+* Good, because in app
+* Bad, because changes to backend need to be made again in DB
+* Bad, because string typing -- no checks in place for validity
 
 ### GRPC
 
